@@ -1,0 +1,605 @@
+{
+	"info": {
+		"_postman_id": "cbf1312c-3080-4af3-a57e-5e7b2dd63ca0",
+		"name": "Ecommerce API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32105623"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Rohan Test\", \"email\":\"rohan@gmail.com\", \"password\":\"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/users/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Register",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"Rohan Test\", \"email\":\"rohan@gmail.com\", \"password\":\"123456\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/api/users/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"users",
+										"register"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "218"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"da-g/wnIWHOLhnz1t3jFIrcz2sEmg4\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 25 Jun 2024 18:17:06 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 200,\n    \"data\": {\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2N2IwOWEyYjJhY2E1MjQ4Y2IwM2MwNiIsImlhdCI6MTcxOTMzOTQyNiwiZXhwIjoxNzE5MzQzMDI2fQ.ErSSaPN5pvZjOwrrKhA5QiNI1bc3PkqUxrhUIuGFk2Q\"\n    },\n    \"error\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\":\"anuj@gmail.com\", \"password\":\"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/users/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\":\"anuj@gmail.com\", \"password\":\"123456\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/api/users/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"users",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "218"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"da-/iSOZd17NCYPrjxLLPuiCxJ7uHA\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 25 Jun 2024 18:17:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 200,\n    \"data\": {\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2N2FiNmE3YzU2YWM4MmFhM2QyOTk4OSIsImlhdCI6MTcxOTMzOTQ1MiwiZXhwIjoxNzE5MzQzMDUyfQ.8qzSaxh3R5l3ZZ28-oCMss0n3XWThPzDEyRRWvAgUHk\"\n    },\n    \"error\": null\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Get products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/api/products",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"products"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "292"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"124-n6sxfWszf2MmkFjwWc4Vd9tLCKg\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 25 Jun 2024 18:18:38 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 200,\n    \"data\": {\n        \"products\": [\n            {\n                \"_id\": \"667b016f398167827199bbee\",\n                \"name\": \"Phone\",\n                \"description\": \"This is android phone\",\n                \"price\": 10000,\n                \"stock\": 23,\n                \"__v\": 0\n            },\n            {\n                \"_id\": \"667b09f2b2aca5248cb03c0a\",\n                \"name\": \"Laptop\",\n                \"description\": \"This is Lenovo Laptop\",\n                \"price\": 50000,\n                \"stock\": 50,\n                \"__v\": 0\n            }\n        ]\n    },\n    \"error\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Create product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2N2FiNmE3YzU2YWM4MmFhM2QyOTk4OSIsImlhdCI6MTcxOTMzNzExMCwiZXhwIjoxNzE5MzQwNzEwfQ.BLP_1EaRgObNfpzWKZOsfskC7GCgA26MWuFPBpKzMQE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"name\":\"Laptop\", \"description\":\"This is Lenovo Laptop\", \"price\":50000, \"stock\":50 }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create product",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \"name\":\"Laptop\", \"description\":\"This is Lenovo Laptop\", \"price\":50000, \"stock\":50 }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/api/products",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"products"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "168"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"a8-0mzgYUujiud5IZ9hnsONefdYSh4\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 25 Jun 2024 18:18:26 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 200,\n    \"data\": {\n        \"product\": {\n            \"name\": \"Laptop\",\n            \"description\": \"This is Lenovo Laptop\",\n            \"price\": 50000,\n            \"stock\": 50,\n            \"_id\": \"667b09f2b2aca5248cb03c0a\",\n            \"__v\": 0\n        }\n    },\n    \"error\": null\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "Get orders",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2N2FiNmE3YzU2YWM4MmFhM2QyOTk4OSIsImlhdCI6MTcxOTMzNzExMCwiZXhwIjoxNzE5MzQwNzEwfQ.BLP_1EaRgObNfpzWKZOsfskC7GCgA26MWuFPBpKzMQE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"orders"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get orders",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/api/orders",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"orders"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "752"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2f0-1enuhFC+Bs3Ju4sow3+W6AluFeM\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 25 Jun 2024 18:18:55 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 200,\n    \"data\": {\n        \"orders\": [\n            {\n                \"_id\": \"667b01d92ec826bf7be521c8\",\n                \"user\": \"667ab6a7c56ac82aa3d29989\",\n                \"product\": {\n                    \"_id\": \"667b016f398167827199bbee\",\n                    \"name\": \"Phone\",\n                    \"description\": \"This is android phone\",\n                    \"price\": 10000,\n                    \"stock\": 23,\n                    \"__v\": 0\n                },\n                \"quantity\": 2,\n                \"total\": 20000,\n                \"__v\": 0\n            },\n            {\n                \"_id\": \"667b086f3ebe7cc2fbcf8e40\",\n                \"user\": \"667ab6a7c56ac82aa3d29989\",\n                \"product\": {\n                    \"_id\": \"667b016f398167827199bbee\",\n                    \"name\": \"Phone\",\n                    \"description\": \"This is android phone\",\n                    \"price\": 10000,\n                    \"stock\": 23,\n                    \"__v\": 0\n                },\n                \"quantity\": 4,\n                \"total\": 40000,\n                \"__v\": 0\n            },\n            {\n                \"_id\": \"667b087e3ebe7cc2fbcf8e45\",\n                \"user\": \"667ab6a7c56ac82aa3d29989\",\n                \"product\": {\n                    \"_id\": \"667b016f398167827199bbee\",\n                    \"name\": \"Phone\",\n                    \"description\": \"This is android phone\",\n                    \"price\": 10000,\n                    \"stock\": 23,\n                    \"__v\": 0\n                },\n                \"quantity\": 1,\n                \"total\": 10000,\n                \"__v\": 0\n            }\n        ]\n    },\n    \"error\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Create orders",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2N2FiNmE3YzU2YWM4MmFhM2QyOTk4OSIsImlhdCI6MTcxOTMzNzExMCwiZXhwIjoxNzE5MzQwNzEwfQ.BLP_1EaRgObNfpzWKZOsfskC7GCgA26MWuFPBpKzMQE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"productId\":\"667b016f398167827199bbee\", \"quantity\":1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"orders"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create orders",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n     \"productId\":\"667b016f398167827199bbee\", \"quantity\":1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/api/orders",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"orders"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "185"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b9-LjMzR64b4FxnQB1uJlwCGU2G+F4\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 25 Jun 2024 18:19:14 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 200,\n    \"data\": {\n        \"order\": {\n            \"user\": \"667ab6a7c56ac82aa3d29989\",\n            \"product\": \"667b016f398167827199bbee\",\n            \"quantity\": 1,\n            \"total\": 10000,\n            \"_id\": \"667b0a22b2aca5248cb03c12\",\n            \"__v\": 0\n        }\n    },\n    \"error\": null\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
