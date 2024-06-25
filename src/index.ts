@@ -7,17 +7,22 @@ import userRoutes from './routes/userRoutes';
 import productRoutes from './routes/productRoutes';
 import orderRoutes from './routes/orderRoutes';
 import errorHandlingMiddleWare from './middleware/error.handler';
+import limiter from './middleware/rate-limiter';
 
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+
 // MongoDB connection
 connectDB();
 // Middleware to log HTTP requests
 app.use(morgan('dev'));
 // Middleware to enable CORS
 app.use(cors());
+// Rate Limiter Middleware
+app.use(limiter); 
+
 app.use(express.json());
 app.use('/api/users', userRoutes);
 app.use('/api/products', productRoutes);
