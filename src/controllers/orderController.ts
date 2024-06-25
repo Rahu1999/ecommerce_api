@@ -2,11 +2,12 @@ import { NextFunction, Request, Response } from 'express';
 import Product from '../models/Product';
 import Order from '../models/Order';
 import sendSuccessResponse from '../middleware/success-handler';
+import { createOrderSchema } from '../validator/order.validator';
 
 export const createOrder = async (req: Request, res: Response,next:NextFunction) => {
-  const { productId, quantity } = req.body;
-
+  
   try {
+    const { productId, quantity } = await createOrderSchema.validateAsync(req.body);
     const product = await Product.findById(productId);
     if (!product) return res.status(404).json({ msg: 'Product not found' });
 

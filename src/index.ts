@@ -1,5 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
+import morgan from 'morgan';
+import cors from 'cors';
 import connectDB from './utils/db';
 import userRoutes from './routes/userRoutes';
 import productRoutes from './routes/productRoutes';
@@ -10,7 +12,12 @@ dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
-connectDB()
+// MongoDB connection
+connectDB();
+// Middleware to log HTTP requests
+app.use(morgan('dev'));
+// Middleware to enable CORS
+app.use(cors());
 app.use(express.json());
 app.use('/api/users', userRoutes);
 app.use('/api/products', productRoutes);
