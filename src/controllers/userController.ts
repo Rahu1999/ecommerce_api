@@ -1,53 +1,38 @@
-import { Request, Response } from 'express';
+import { NextFunction, Request, Response } from 'express';
 import User from '../models/User';
-import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-import { isError } from '../utils/common';
+import sendSuccessResponse from '../middleware/success-handler';
 
-const register = async (req: Request, res: Response) => {
+export const register = async (req: Request, res: Response, next:NextFunction) => {
   const { name, email, password } = req.body;
 
   try {
-    const hashedPassword = await bcrypt.hash(password, 10);
-    const newUser = new User({ name, email, password: hashedPassword });
-    await newUser.save();
+    let user = await User.findOne({ email });
+    if (user) return res.status(400).json({ msg: 'User already exists' });
 
-    res.status(201).json({ message: 'User registered successfully' });
-  } catch (error) {
-    if (isError(error)) {
-        res.status(400).json({ error: error.message });
-      } else {
-        res.status(500).json({ error: 'Server error' });
-      }
+    user = new User({ name, email, password });
+    await user.save();
+
+    const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET!, { expiresIn: '1h' });
+    sendSuccessResponse(req, res, { token })
+  } catch (err) {
+    next(err)
   }
 };
 
-const login = async (req: Request, res: Response) => {
+export const login = async (req: Request, res: Response, next:NextFunction) => {
   const { email, password } = req.body;
 
   try {
     const user = await User.findOne({ email });
-    if (!user) {
-      return res.status(400).json({ message: 'Invalid credentials' });
-    }
+    if (!user) return res.status(400).json({ msg: 'Invalid credentials' });
 
-    const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) {
-      return res.status(400).json({ message: 'Invalid credentials' });
-    }
+    const isMatch = await user.comparePassword(password);
+    if (!isMatch) return res.status(400).json({ msg: 'Invalid credentials' });
 
-    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET!, {
-      expiresIn: '1h',
-    });
-
-    res.json({ token });
-  } catch (error) {
-    if (isError(error)) {
-        res.status(400).json({ error: error.message });
-      } else {
-        res.status(500).json({ error: 'Server error' });
-      }
+    const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET!, { expiresIn: '1h' });
+    sendSuccessResponse(req, res, { token })
+  } catch (err) {
+   next(err)
   }
 };
-
-export { register, login };
