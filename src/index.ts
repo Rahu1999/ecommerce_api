@@ -8,6 +8,26 @@ import productRoutes from './routes/productRoutes';
 import orderRoutes from './routes/orderRoutes';
 import errorHandlingMiddleWare from './middleware/error.handler';
 import limiter from './middleware/rate-limiter';
+import nock from 'nock';
+// Mock Stripe API
+nock('https://api.stripe.com')
+  .post('/v1/charges')
+  .reply(200, {
+    id: 'eZvKYlo2C5g6sm7H5',
+    amount: 2000,
+    currency: 'inr',
+    isPaid: true,
+});
+
+// Mock Logistics API
+nock('https://api.logistics.com')
+  .get('/v1/shipments')
+  .reply(200, {
+    id: '_1234567890',
+    isCompleted: true,
+    status: 'shipped',
+  });
+
 
 dotenv.config();
 
