@@ -5,6 +5,7 @@ import sendSuccessResponse from '../middleware/success-handler';
 import { createOrderSchema } from '../validator/order.validator';
 import axios from 'axios';
 import ApiError from '../utils/apiError';
+import Payment from '../models/Payment';
 
 export const createOrder = async (req: Request, res: Response,next:NextFunction) => {
   
@@ -46,6 +47,9 @@ export const paymentRequest = async (req: Request, res: Response,next:NextFuncti
       if(response.data && response.data.isPaid){
         // We can also call success api url and inside the success api we can update the isPaid true
         await Order.findByIdAndUpdate(order._id, { isPaid: true }, { new: true });
+        // create entry in payment table
+        const payment = new Payment({ user: req.user!.id, order: order._id, amount});
+        await payment.save();
         sendSuccessResponse(req, res, { message: "Your order successfully created!" }) 
       }
 
