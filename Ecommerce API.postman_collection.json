@@ -598,6 +598,238 @@
 							"body": "{\n    \"status\": 200,\n    \"data\": {\n        \"order\": {\n            \"user\": \"667ab6a7c56ac82aa3d29989\",\n            \"product\": \"667b016f398167827199bbee\",\n            \"quantity\": 1,\n            \"total\": 10000,\n            \"_id\": \"667b0a22b2aca5248cb03c12\",\n            \"__v\": 0\n        }\n    },\n    \"error\": null\n}"
 						}
 					]
+				},
+				{
+					"name": "Create Payment Request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2N2FiNmE3YzU2YWM4MmFhM2QyOTk4OSIsImlhdCI6MTcxOTQyMzQ4NywiZXhwIjoxNzE5NDI3MDg3fQ.fPrZopT40lF4MTCfVvZzdhI7B7TB_tSvSGkK1RggXNQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"productId\":\"667b016f398167827199bbee\", \"quantity\":1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/orders/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"orders",
+								"create"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Order Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n     \"productId\":\"667b016f398167827199bbee\", \"quantity\":1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/api/orders/create",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"orders",
+										"create"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "RateLimit-Policy",
+									"value": "5000;w=300"
+								},
+								{
+									"key": "RateLimit-Limit",
+									"value": "5000"
+								},
+								{
+									"key": "RateLimit-Remaining",
+									"value": "4999"
+								},
+								{
+									"key": "RateLimit-Reset",
+									"value": "300"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "81"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"51-A8fYcRDFmkLxT7p30rjqZwUs1UY\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 26 Jun 2024 18:00:56 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 200,\n    \"data\": {\n        \"message\": \"Your order successfully created!\"\n    },\n    \"error\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "fetch Logistics status",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2N2FiNmE3YzU2YWM4MmFhM2QyOTk4OSIsImlhdCI6MTcxOTQyNTU3MiwiZXhwIjoxNzE5NDI5MTcyfQ.60WQEESCTVKJ870YGLrwi-74vLgUITBqfz3MBAX3xuA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/orders/ship",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"orders",
+								"ship"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "fetch Logistics status",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/api/orders/ship",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"orders",
+										"ship"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "RateLimit-Policy",
+									"value": "5000;w=300"
+								},
+								{
+									"key": "RateLimit-Limit",
+									"value": "5000"
+								},
+								{
+									"key": "RateLimit-Remaining",
+									"value": "4999"
+								},
+								{
+									"key": "RateLimit-Reset",
+									"value": "300"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "133"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"85-IoLXcPZdN59V3CIWKO4cyVAvFoU\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 26 Jun 2024 18:13:37 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 200,\n    \"data\": {\n        \"message\": \"Your order shipped created!\",\n        \"id\": \"_1234567890\",\n        \"isCompleted\": true,\n        \"status\": \"shipped\"\n    },\n    \"error\": null\n}"
+						}
+					]
 				}
 			]
 		}
